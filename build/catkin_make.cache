@@ -1,0 +1,2 @@
+my_robot
+-DCATKIN_DEVEL_PREFIX=/home/ubuntu/ROS1_Go_Chase_It/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/ROS1_Go_Chase_It/install -G Unix Makefiles
