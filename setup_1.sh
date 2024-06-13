@@ -56,7 +56,7 @@ cat << 'EOF' >> world.launch
 </launch>
 EOF
 
-cd ../.. # Back to the workspace folder layer
+cd ../../.. # Back to the workspace folder layer
 catkin_make
 
 # To launch
