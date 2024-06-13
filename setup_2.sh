@@ -127,7 +127,7 @@ cat << 'EOF' > world.launch
 EOF
 
 # Launch
-#cd ../../..
-#catkin_make
+cd ../../..
+catkin_make
 #source devel/setup.bash
 #roslaunch my_robot world.launch
