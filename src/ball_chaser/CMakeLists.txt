@@ -132,9 +132,9 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(ball_chaser src/drive_bot.cpp)
-target_link_libraries(ball_chaser ${catkin_LIBRARIES})
-add_dependencies(ball_chaser ball_chaser_generate_messages_cpp)
+add_executable(drive_bot src/drive_bot.cpp)
+target_link_libraries(drive_bot ${catkin_LIBRARIES})
+add_dependencies(drive_bot ball_chaser_generate_messages_cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
