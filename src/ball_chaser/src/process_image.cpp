@@ -34,13 +34,18 @@ void process_image_callback(const sensor_msgs::Image img)
     int ball_right = -1;
     bool ball_found = false;
     for (int i = 0; i < img.height; i++) {
-      for (int j = 0; j < img.step; j++) {
-        if (img.data[i * img.step + j] == white_pixel) {
+      for (int j = 0; j < img.width; j++) {
+        if (img.data[(i * img.width + j)*3] == white_pixel && 
+            img.data[(i * img.width + j)*3 + 1] == white_pixel && 
+            img.data[(i * img.width + j)*3 + 2] == white_pixel) {
           ball_found = true;
           if (ball_left == -1) {
             ball_left = j;
           }
-        } else if (ball_found && ball_right != -1 && img.data[i * img.step + j] != white_pixel) {
+        } else if (ball_found && ball_right != -1 && 
+            (img.data[(i * img.step + j) * 3] != white_pixel ||
+            img.data[(i * img.step + j) * 3 + 1] != white_pixel ||
+            img.data[(i * img.step + j) * 3 + 2] != white_pixel)) {
           ball_right = j;
         }
       }
