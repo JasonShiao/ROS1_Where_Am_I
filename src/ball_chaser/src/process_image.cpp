@@ -42,7 +42,7 @@ void process_image_callback(const sensor_msgs::Image img)
           if (ball_left == -1) {
             ball_left = j;
           }
-        } else if (ball_found && ball_right != -1 && 
+        } else if (ball_found && ball_right == -1 && 
             (img.data[(i * img.width + j) * 3] != white_pixel ||
             img.data[(i * img.width + j) * 3 + 1] != white_pixel ||
             img.data[(i * img.width + j) * 3 + 2] != white_pixel)) {
@@ -59,21 +59,21 @@ void process_image_callback(const sensor_msgs::Image img)
 
     if (ball_found) {
       int ball_center = (ball_left + ball_right) / 2;
-      ROS_INFO("Ball found at %d", ball_center);
+      ROS_INFO("Ball found at %d (%d, %d)", ball_center, ball_left, ball_right);
       if (ball_center < (img.width / 3)) {
         ROS_INFO("Turning right");
-        drive_robot(0.0, -0.2); // turn right
+        drive_robot(0.0, -0.15); // turn right
       } else if (ball_center < (2 * img.width / 3)) {
         ROS_INFO("Moving forward");
-        drive_robot(-1, 0.0); // forward
+        drive_robot(-0.7, 0.0); // forward
       } else {
         ROS_INFO("Turning left");
-        drive_robot(0.0, 0.2); // turn left
+        drive_robot(0.0, 0.15); // turn left
       }
     } else {
       // Rotate to find the ball
       ROS_INFO("Rotating");
-      drive_robot(0.0, 0.3);
+      drive_robot(0.0, 0.2);
     }
 }
 
