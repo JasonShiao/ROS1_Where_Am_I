@@ -64,7 +64,7 @@ void process_image_callback(const sensor_msgs::Image img)
         drive_robot(0.0, 0.5); // turn right
       } else if (ball_center < 2 * img.step / 3) {
         ROS_INFO("Moving forward");
-        drive_robot(0.5, 0.0); // forward
+        drive_robot(-0.5, 0.0); // forward
       } else {
         ROS_INFO("Turning left");
         drive_robot(0.0, -0.5); // turn left
