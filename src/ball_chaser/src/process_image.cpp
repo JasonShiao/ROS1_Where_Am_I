@@ -62,13 +62,13 @@ void process_image_callback(const sensor_msgs::Image img)
       ROS_INFO("Ball found at %d", ball_center);
       if (ball_center < (img.width / 3)) {
         ROS_INFO("Turning right");
-        drive_robot(0.0, 0.5); // turn right
+        drive_robot(0.0, -0.5); // turn right
       } else if (ball_center < (2 * img.width / 3)) {
         ROS_INFO("Moving forward");
         drive_robot(-1, 0.0); // forward
       } else {
         ROS_INFO("Turning left");
-        drive_robot(0.0, -0.5); // turn left
+        drive_robot(0.0, 0.5); // turn left
       }
     } else {
       // Rotate to find the ball
